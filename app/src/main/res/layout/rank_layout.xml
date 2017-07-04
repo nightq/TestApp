@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_view_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginRight="60dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="4dp">
+
+                <TextView
+                    android:id="@+id/rank_person_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="12dp"
+                    android:gravity="center"
+                    android:paddingTop="6dp"
+                    android:text="个人排名"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/rank_clan_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center"
+                    android:paddingTop="6dp"
+                    android:text="战队排名"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/switch_district_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:paddingLeft="14dp"
+                android:paddingTop="6dp"
+                android:text="切换地区"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="36dp"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:weightSum="4">
+
+            <TextView
+                android:id="@+id/rank_friend_tab"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="好友榜"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/rank_district_tab"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="地区榜"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/rank_world_tab"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="世界榜"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/rank_history_tab"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="历史最高"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="36dp"
+            android:orientation="vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="6dp">
+
+            <LinearLayout
+                android:id="@+id/rank_tab_host"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="1dp"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/rank_tab_first"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="团战模式"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:id="@+id/rank_tab_second"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="无尽模式"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/rank_tab_third"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="限时模式"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:text="排名"  />
+
+
+                <TextView
+                    android:id="@+id/list_tab_name_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="用户名" />
+
+                <TextView
+                    android:id="@+id/list_tab_captain_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="队长"  />
+
+                <TextView
+                    android:id="@+id/list_tab_sort_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:paddingRight="52dp"
+                    android:text="段位" />
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/rank_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/rank_close_lay"
+                android:layout_weight="1"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"
+                android:fadingEdge="none"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+
+                <TextView
+                    android:id="@+id/rank_tip_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="本赛季于4月01日00:00结算奖励"
+                    android:textSize="12dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/back_img"
+        android:layout_width="74dp"
+        android:layout_height="36dp"
+        android:layout_gravity="right|bottom"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:scaleType="centerInside" />
+
+</FrameLayout>

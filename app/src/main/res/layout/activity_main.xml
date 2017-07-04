@@ -2,16 +2,15 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.nightq.testapp.MainActivity">
+    android:layout_height="match_parent" >
 
 
-    <com.example.nightq.testapp.GameOverTransitAnimView
-        android:id="@+id/gameOverTransitAnimView"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.example.nightq.testapp.GameOverTransitAnimView>
+        <include layout="@layout/rank_layout" />
+    </FrameLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
