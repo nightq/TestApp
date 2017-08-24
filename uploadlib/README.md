@@ -1,8 +1,33 @@
+目录结构
+===
+* base: 上传业务逻辑
+* qiniu: 七牛上传包
+* amazon: amazon上传包
 
-1.获取 token 
----
-UploadTokenParamBase ---> UploadTokenService ---> TokenBase
+上传流程
+===
+* 1.判断 token 是否有效 
+* 2.如果无效，get token service 获取 token
+* 3.使用 token 上传
+* 4.回调结果
 
-2.使用 token 和上传参数上传到七牛
----
-TokenBase + UploadParamBase ---> upload to qiniu
+结构说明
+===
+* [Token](./src/main/java/com/wepie/snake/lib/upload/base/model/TokenBase.java): 上传到 服务商的 token
+* [UploadParam](./src/main/java/com/wepie/snake/lib/upload/base/model/UploadParam.java): 上传到 服务器的 参数，包括 本地文件名，上传到服务器的文件名等
+* [UploadResult](./src/main/java/com/wepie/snake/lib/upload/base/model/UploadResult.java): 回调的返回结果，通常包括 上传结果 url 等
+* [GetTokenService](./src/main/java/com/wepie/snake/lib/upload/base/service/GetTokenService.java): 获取 token 的服务
+* [UploadService](./src/main/java/com/wepie/snake/lib/upload/base/service/UploadService.java): 上传服务
+* [CallBack](./src/main/java/com/wepie/snake/lib/upload/base/service/CallBack.java): 回调的返回结果，通常包括 上传结果 url 等
+
+使用方法
+===
+在 [UploadManager](./src/main/java/com/wepie/snake/lib/upload/UploadManager.java) 里面配置
+见 Demo：
+
+        UploadManager
+            .builder() // or .builder(QiniuTaskBuilder.class)
+            .uploadParam("path")
+            .callback(null)
+            .token(null) // or .tokenService(tokenService) 必须二选一
+            .upload();
