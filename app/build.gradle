@@ -37,5 +37,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 //    compile 'com.airbnb.android:lottie:1.5.3'
     compile 'com.airbnb.android:lottie:2.0.0'
+    compile project(':uploadlib')
 
 }

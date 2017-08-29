@@ -22,6 +22,4 @@ androidSupportAppcompatV7
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile rootProject.ext.androidSupportAppcompatV7
-    compile project(':data')
-    compile project(':domain')
 }

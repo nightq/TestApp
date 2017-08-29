@@ -1,10 +1,16 @@
 package com.wepie.snake.lib.upload;
 
-import com.wepie.snake.lib.upload.amazon.AmazonTaskBuilder;
-import com.wepie.snake.lib.upload.base.UploadTask;
-import com.wepie.snake.lib.upload.qiniu.QiniuTaskBuilder;
-
-import java.security.InvalidParameterException;
+import com.wepie.snake.lib.upload.data.cache.token.TokenCacheImpl;
+import com.wepie.snake.lib.upload.data.domain.callback.CallBack;
+import com.wepie.snake.lib.upload.data.domain.interactor.UploadFile;
+import com.wepie.snake.lib.upload.data.domain.model.UploadParam;
+import com.wepie.snake.lib.upload.data.domain.model.UploadResult;
+import com.wepie.snake.lib.upload.data.domain.repository.CDNRepository;
+import com.wepie.snake.lib.upload.data.domain.repository.TokenRepository;
+import com.wepie.snake.lib.upload.data.repository.token.TokenDataRepository;
+import com.wepie.snake.lib.upload.data.repository.token.datasource.TokenDataStoreFactory;
+import com.wepie.snake.lib.upload.data.repository.upload.CDNDataRepository;
+import com.wepie.snake.lib.upload.data.repository.upload.datasource.CDNDataStoreFactory;
 
 /**
  * Created by nightq on 2017/8/24.
@@ -12,17 +18,21 @@ import java.security.InvalidParameterException;
 
 public class UploadManager {
 
-    public static QiniuTaskBuilder builder () {
-        return new QiniuTaskBuilder();
+    private CDNRepository cdnRepository;
+    private TokenRepository tokenRepository;
+
+    public UploadManager() {
+        cdnRepository = new CDNDataRepository(new CDNDataStoreFactory());
+        tokenRepository = new TokenDataRepository(new TokenDataStoreFactory(new TokenCacheImpl()));
     }
 
-    public static <UploadTaskBuilder extends UploadTask.Builder> UploadTaskBuilder builder (Class<UploadTaskBuilder> builderclass) {
-        if (builderclass == QiniuTaskBuilder.class) {
-            return (UploadTaskBuilder) new QiniuTaskBuilder();
-        } else if (builderclass == AmazonTaskBuilder.class) {
-            return (UploadTaskBuilder) new AmazonTaskBuilder();
-        }
-        throw new InvalidParameterException("参数错误");
+    public void upload(String path, String platform, CallBack<UploadResult> callback) {
+        UploadFile uploadFile = new UploadFile(cdnRepository, tokenRepository);
+
+        UploadParam uploadParam = new UploadParam(path);
+        uploadParam.setPlatform(platform);
+
+        uploadFile.build(uploadParam, callback);
     }
 
 }
