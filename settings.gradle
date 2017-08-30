@@ -1,1 +1,1 @@
-include ':app', ':uploadlib'
+include ':app'
