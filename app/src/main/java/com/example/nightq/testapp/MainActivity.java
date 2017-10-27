@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.lottieView);
 
-        lottieAnimationView.setAnimation("simple_test.json");
+//        lottieAnimationView.setAnimation("simple_test.json");
+
+        lottieAnimationView.setAnimation("simple.json");
         lottieAnimationView.loop(true);
         lottieAnimationView.playAnimation();
     }
