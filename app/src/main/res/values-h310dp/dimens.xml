@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 调整首页游戏按钮尺寸 -->
+    <dimen name="home_game_endless_layout_w">50dp</dimen>
+    <dimen name="home_game_endless_layout_h">50dp</dimen>
+
+</resources>

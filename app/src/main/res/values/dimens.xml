@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- 调整首页游戏按钮尺寸 -->
+    <dimen name="home_game_endless_layout_w">200dp</dimen>
+    <dimen name="home_game_endless_layout_h">200dp</dimen>
+
 </resources>
