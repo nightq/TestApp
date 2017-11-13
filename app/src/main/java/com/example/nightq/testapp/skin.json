@@ -1,0 +1,36 @@
+{
+  "1base_skin_id": "",
+  "1name": "",
+  "1skin_id": "",
+  "1use_limit": "",
+  "2use_dynamic_skin": "",
+  "2技能属性": [],
+  "3物品属性": {
+
+    "1购买获取方式": [
+      {
+        "discount": 0,
+        "num": 2,
+        "type": 1
+      }
+    ],
+    "2碎片获取方式": {
+      "chip_url": "url",
+      "num": 100,
+      "碎片价格": []
+    },
+    "get_method": "",
+
+
+    "get_method_desc": "",
+
+    "btn_text": "",
+    "corner_desc": "",
+    "desc": "",
+    "headimgurl": "",
+    "imgurl": "",
+    "sell_limit": "",
+    "skin_level": "",
+    "worth": ""
+  }
+}
