@@ -1,4 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+apt {
+    arguments {
+        eventBusIndex "com.example.nightq.testapp.SnakeEventBusIndex"//这里是声明生成索引的全类名
+    }
+}
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -12,6 +19,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -21,21 +32,24 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile rootProject.ext.androidSupportAppcompatV7
     compile rootProject.ext.androidSupportDesign
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-
-    compile 'com.jakewharton:butterknife:8.6.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-//    compile 'com.airbnb.android:lottie:1.5.3'
-//    compile 'com.airbnb.android:lottie:2.0.0'
-
+//    testCompile 'junit:junit:4.12'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //注意修改jar包名,与下载的jar包名称一致
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.19.jar')
+    //    compile 'com.airbnb.android:lottie:1.5.3'
+    //    compile 'com.airbnb.android:lottie:2.0.0'
+    compile files('libs/eventbus-3.0.0.jar')
 }
