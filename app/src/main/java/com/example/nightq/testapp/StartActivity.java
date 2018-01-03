@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 public class StartActivity extends AppCompatActivity {
 
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -26,15 +27,35 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
 
+        if (needSkipLoadConfig()) {
+            Log.e("nightq", "StartActivity skip on create" );
+            finish();
+            return;
+        }
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.e("gnihtq", "HomeActivity ex = " + HomeActivity.isexist);
+                Log.e("nightq", "StartActivity enter home" );
                 startActivity(new Intent(StartActivity.this, HomeActivity.class));
                 finish();
             }
         }, 100);
         Log.e(LinkedME.TAG, "StartActivity onCreate this = " + this);
+    }
+
+    /**
+     * 如果 config 已经处理完成，就可以跳过
+     * @return
+     */
+    private boolean needSkipLoadConfig () {
+        CheckHomeActivityLiveEvent event = new CheckHomeActivityLiveEvent();
+        EventBus.getDefault().post(event);
+        if (event.isLive) {
+            LinkedME.getInstance().setImmediate(true);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // 添加此处目的是针对后台APP通过uri scheme唤起的情况，

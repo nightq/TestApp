@@ -28,6 +28,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onBackPressed();
         Log.e("nightq", "onBackPressed HomeActivity this = " + this);
     }
+    /**
+     * 这里不设置 threadMode ，为了保证event 马上同步被执行
+     */
+    @Subscribe
+    public void onCheckHomeActivityLiveEvent(CheckHomeActivityLiveEvent event) {
+        event.isLive = true;
+    }
 
     // 添加此处目的是针对后台APP通过uri scheme唤起的情况，
     // 注意：即使不区分用户是否登录也需要添加此设置，也可以添加到基类中

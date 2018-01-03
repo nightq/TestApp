@@ -33,24 +33,23 @@
             android:name="linkedme.sdk.key"
             android:value="a638be1770105ae231ebdb24c2ba5d1b" />
 
+        <activity
+            android:name=".HomeActivity"
+            android:label="HomeActivity">
+
+        </activity>
 
         <activity
             android:name=".StartActivity"
-            android:label="StartActivity">
+            android:label="StartActivity"
+            android:launchMode="singleTask">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-        </activity>
-
-        <activity
-            android:name=".HomeActivity"
-            android:label="HomeActivity"
-            android:launchMode="singleTask" >
-
-        <!--<activity-->
+            <!--<activity-->
             <!--android:name=".DeepLinkEnterActivity"-->
             <!--android:label="DeepLinkEnterActivity"-->
             <!--android:launchMode="singleTask">-->
