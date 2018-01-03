@@ -1,5 +1,6 @@
 package com.example.nightq.testapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,7 +23,22 @@ import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity {
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.e("nightq", "onBackPressed HomeActivity this = " + this);
+    }
+
+    // 添加此处目的是针对后台APP通过uri scheme唤起的情况，
+    // 注意：即使不区分用户是否登录也需要添加此设置，也可以添加到基类中
+    @Override
+    protected void onNewIntent(Intent intent) {
+        setIntent(intent);
+        Log.e(LinkedME.TAG, "HomeActivity onNewIntent");
+    }
+
     public static JumpEvent lastEvent;
+    public static boolean isexist;
 
     @BindView(R.id.button)
     Button button;
@@ -33,8 +49,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        isexist = true;
         ButterKnife.bind(this);
-        Log.e(LinkedME.TAG, "HomeActivity onCreate");
+        Log.e(LinkedME.TAG, "HomeActivity onCreate = " + this);
         EventBus.getDefault().register(this);
         JumpEvent jumpEvent = EventBus.getDefault().getStickyEvent(JumpEvent.class);
         EventBus.getDefault().removeStickyEvent(JumpEvent.class);
@@ -49,17 +66,24 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LinkedME.getInstance().setImmediate(true);
+    }
+
     @Subscribe
     public void onJumpEvent(JumpEvent event) {
         // todo nightq now
         lastEvent = event;
         // do something
-        Log.e("nightq", "onJumpEvent " + Thread.currentThread().getName());
+        Log.e("nightq", "onJumpEvent " + Thread.currentThread().getName() + " " + this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        isexist = false;
         EventBus.getDefault().unregister(this);
     }
 
@@ -69,14 +93,14 @@ public class HomeActivity extends AppCompatActivity {
         //深度链接属性设置
         LinkProperties properties = new LinkProperties();
         //渠道
-        properties.setChannel("oppo");  //微信、微博、QQ
+        properties.setChannel("vivosdf");  //微信、微博、QQ
         //功能
-        properties.setFeature("sharesdf");
+        properties.setFeature("share");
         //标签
         properties.addTag("LinkedME");
         properties.addTag("Demo");
+        properties.setStage("Live");
         //阶段
-        properties.setStage("Liveee");
         //设置该h5_url目的是为了iOS点击右上角lkme.cc时跳转的地址，一般设置为当前分享页面的地址
         //客户端创建深度链接请设置该字段
         properties.setH5Url("https://linkedme.cc/h5/feature");

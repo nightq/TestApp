@@ -19,7 +19,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.FullScreen.Trans" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+    <style name="AppTheme.FullScreen.Trans" parent="Theme.AppCompat.Light.NoActionBar" >
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Note that we use the base animation style here (that is no
+             animations) because we really have no idea how this kind of
+             activity will be used. -->
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

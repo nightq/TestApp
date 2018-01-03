@@ -15,6 +15,12 @@ import butterknife.ButterKnife;
 public class StartActivity extends AppCompatActivity {
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.e("nightq", "onBackPressed StartActivity this = " + this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
@@ -23,8 +29,8 @@ public class StartActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                Log.e("gnihtq", "HomeActivity ex = " + HomeActivity.isexist);
                 startActivity(new Intent(StartActivity.this, HomeActivity.class));
-                Log.e("nightq", "Jumphelper.jumpParam = " + Jumphelper.jumpParam);
                 finish();
             }
         }, 100);

@@ -24,10 +24,16 @@ import java.util.HashMap;
 public class MiddleActivity extends AppCompatActivity {
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.e("nightq", "onBackPressed MiddleActivity this = " + this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
-        Log.e(LinkedME.TAG, "onCreate: MiddleActivity is called.");
+        Log.e(LinkedME.TAG, "onCreate: MiddleActivity is called." + this);
 //        Toast.makeText(this, "MiddleActivity 被调用了", Toast.LENGTH_SHORT).show();
         //获取与深度链接相关的值
         LinkProperties linkProperties = getIntent().getParcelableExtra(LinkedME.LM_LINKPROPERTIES);
@@ -38,7 +44,7 @@ public class MiddleActivity extends AppCompatActivity {
         if (linkProperties != null) {
             Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
             Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
-            Log.i("LinkedME-Demo", "link(深度链接) " + linkProperties.getLMLink());
+            Log.e("LinkedME-Demo", "link(深度链接) " + linkProperties.getLMLink());
             //获取自定义参数封装成的HashMap对象
             HashMap<String, String> hashMap = linkProperties.getControlParams();
 
@@ -82,4 +88,5 @@ public class MiddleActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         }
     }
+
 }
