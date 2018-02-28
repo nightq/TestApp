@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="1334px"
+    android:layout_height="750px">
+
+    <ImageView
+        android:layout_width="1334px"
+        android:layout_height="750px"
+        android:src="@drawable/share_life_bg"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28px"
+        android:layout_marginLeft="28px"
+        android:minHeight="60px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/life_share_item_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/head_icon"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_marginLeft="40px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="46px"
+            android:layout_marginTop="8px"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:maxWidth="320px"
+            android:textColor="#ffffff"
+            android:textSize="27px"
+            app:layout_constraintBottom_toTopOf="@+id/score"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/head_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="西瓜王子"/>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="46px"
+            android:textColor="#FFEF7D"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/head_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="得分  1000000"/>
+
+        <TextView
+            android:id="@+id/kill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="2px"
+            android:textColor="#F6E588"
+            android:textSize="18px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/head_icon"
+            app:layout_constraintTop_toBottomOf="@id/score"
+            tools:text="击杀  9999"/>
+
+        <TextView
+            android:id="@+id/combo_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12px"
+            android:textColor="#F6E588"
+            android:textSize="18px"
+            app:layout_constraintBottom_toBottomOf="@id/kill"
+            app:layout_constraintLeft_toRightOf="@id/kill"
+            app:layout_constraintTop_toTopOf="@id/kill"
+            tools:text="最大连击  9999"/>
+
+        <TextView
+            android:id="@+id/gold_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12px"
+            android:layout_marginRight="46px"
+            android:textColor="#F6E588"
+            android:textSize="18px"
+            app:layout_constraintBottom_toBottomOf="@id/kill"
+            app:layout_constraintLeft_toRightOf="@id/combo_max"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/kill"
+            tools:text="金豆  9999"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

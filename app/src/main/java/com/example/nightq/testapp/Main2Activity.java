@@ -1,24 +1,21 @@
 package com.example.nightq.testapp;
 
 import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.OvershootInterpolator;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity {
 
     @BindView(R.id.image)
-    ImageView image;
+    View image;
 //    @BindView(R.id.layout2)
 //    LinearLayout layout2;
     View layout3;
@@ -35,12 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.image)
     public void onViewClicked() {
-        Bitmap bmp = ShareUtil.makeLifeShareBitmap(this);
-        image.setImageBitmap(bmp);
-        if (bmp == null) {
-            return;
-        }
-        Log.e("nightq", "bmp w = " + bmp.getWidth() + " h = " + bmp.getHeight());
 //        AnimatorSet animatorSet = new AnimatorSet();
 ////        animatorSet.play()
 ////                .before()
@@ -54,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //        animatorSet.start();
 
 //        play();
-//        getReboundAnimator(image).start();
+        getReboundAnimator(image).start();
 //        getSelfReboundAnimator(image).start();
 //        getOpenChestAnimator(image, 100, 300).start();
 //        playTest();
