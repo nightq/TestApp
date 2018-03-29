@@ -1,45 +1,29 @@
 package com.example.nightq.testapp;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dalvik.system.DexClassLoader;
 
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.image)
     ImageView image;
-
-    public static final String[] channel = {
-
-            "anzhi",
-            "oppo",
-            "vivo",
-            "newTencent",
-            "xiaomi",
-            "xiaominew",
-            "360",
-            "yunos",
-            "samsung",
-            "meituxiuxiu",
-            "youpinwei",
-            "wandoujia",
-            "smartisan",
-            "letv",
-            "baidu",
-            "tencent",
-            "official",
-            "sogou",
-            "huawei",
-            "oppo",
-            "yingyongbao"
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,26 +31,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        loadJar();
     }
 
-    int index = 0;
+    String assertDir = "protobuf";
+    String jarOutputPath = FileHelper.BASE_FOLDER + assertDir + "/protobuf-lite-3.0.1";
+    private void loadJar () {
+        FileHelper.copyJarToSD(this, assertDir);
+        String jarPath = FileHelper.BASE_FOLDER + assertDir + "/protobuf-lite-3.0.1.jar";
+        if (!new File(jarPath).exists()){
+            Log.e("nightq", "没有加载好jar包");
+            return;
+        }
+        useDexClassLoader(jarPath);
+    }
 
     @OnClick(R.id.image)
     public void onViewClicked() {
-        final String content = channel[index];
-        String url = "http%3A%2F%2Ftcsdzz.com%2Fcommon_deep_link%2F%3Fmarket%3D" +
-                content +
-                "%26tags%3D%E8%B5%9B%E4%BA%8B%26jump_url%3Dsnake%3A%2F%2FraceActivity";
-        ShareUtil.getEncodeBitmap(url, new ShareUtil.Runnable() {
-            @Override
-            public void run(@NonNull Bitmap bitmap) {
-                image.setImageBitmap(bitmap);
-                Log.e("nightq", "content = " + content);
-            }
-        });
-        index ++;
-        if (index == channel.length-1) {
-            index = 0;
+        loadJar();
+    }
+
+
+    private void useDexClassLoader(String path){
+        File codeDir=getDir("protobuf_jar", Context.MODE_PRIVATE);
+//        File codeDir=new File(jarOutputPath);
+        //创建类加载器，把dex加载到虚拟机中
+        DexClassLoader calssLoader = new DexClassLoader(path, codeDir.getAbsolutePath(), null,
+                this.getClass().getClassLoader());
+        DexClassLoader calssLoader2 = new DexClassLoader(path, codeDir.getAbsolutePath(), null,
+                this.getClass().getClassLoader());
+        DexClassLoader calssLoader3 = new DexClassLoader(path, codeDir.getAbsolutePath(), null,
+                this.getClass().getClassLoader());
+        //利用反射调用插件包内的类的方法
+        try {
+            com.google.protobuf.AbstractMessageLite abstractMessageLite = null;
+            Log.e("nightq", "2 no e = : " + abstractMessageLite);
+        } catch (Exception e) {
+            Log.e("nightq", "2 e = : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
