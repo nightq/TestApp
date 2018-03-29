@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PublicDialogActivityStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@style/Anim_scale</item>
+    </style>
+
+    <style name="Anim_scale" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/dialog_activity_scale_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/dialog_activity_scale_in</item>
+        <item name="android:activityCloseEnterAnimation">@anim/dialog_activity_scale_out</item>
+        <item name="android:activityCloseExitAnimation">@anim/dialog_activity_scale_out</item>
+    </style>
+</resources>

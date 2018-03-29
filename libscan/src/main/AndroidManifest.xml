@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.wepie.scanlib">
+
+
+    <!--+++++++++++++++++++扫码 start++++++++++++++++++++++++++++++++++-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--+++++++++++++++++++扫码 end  ++++++++++++++++++++++++++++++++++-->
+
+    <application>
+        <activity
+            android:name="com.wepie.scanlib.zxing.activity.CaptureActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/PublicDialogActivityStyle" />
+        <activity
+            android:name="com.wepie.scanlib.zxing.activity.ResultActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+    </application>
+
+</manifest>
