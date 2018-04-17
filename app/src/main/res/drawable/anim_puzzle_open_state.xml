@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/box_available_00" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_01" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_02" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_03" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_04" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_05" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_06" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_07" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_08" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_09" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_10" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_11" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_12" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_13" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_14" android:duration="50"/>
+    <item android:drawable="@drawable/box_available_15" android:duration="1050"/>
+</animation-list>

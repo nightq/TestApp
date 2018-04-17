@@ -1,65 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--android:layout_width="90dp"-->
+        <!--android:layout_height="158dp"-->
+        <!--app:lottie_scale="0.46875"-->
+
+        <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/first_charge_dot_lottie_anim"
+        android:layout_width="90dp"
+        android:layout_height="158dp"
+        android:visibility="visible"
+            app:lottie_scale="0.46875"
+        app:lottie_autoPlay="true"
+        app:lottie_progress="0"
+        android:background="#44444444"
+        app:lottie_fileName="first_charge_item_light.json"
+        app:lottie_loop="true" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="192dp"
+        android:layout_height="328dp"
+        android:visibility="visible"
+        app:lottie_autoPlay="true"
+        app:lottie_progress="0"
+        android:background="#44444444"
+        app:lottie_fileName="first_charge_item_light.json"
+        app:lottie_loop="true" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical|right"
+        android:paddingRight="8dp"
+        android:text="超值礼包砸中你了"
+        android:textColor="#ffffff"
+        android:textSize="14dp"
+        android:visibility="gone" />
 
 
     <LinearLayout
-        android:id="@+id/imgLayout"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageview"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/anim_puzzle_close_state" />
 
-            <com.example.nightq.testapp.RoundCornerImageView
-                android:id="@+id/img1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="#ff88ff88" />
-
-            <com.example.nightq.testapp.RoundCornerImageView
-                android:id="@+id/img2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="#ffffff88" />
-
-            <com.example.nightq.testapp.RoundCornerImageView
-                android:id="@+id/img3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="#ffff8888" />
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageview1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/anim_puzzle_open_state" />
 
-            <com.example.nightq.testapp.RoundCornerImageView
-                android:id="@+id/img4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="#ff88ff88" />
-
-            <com.example.nightq.testapp.RoundCornerImageView
-                android:id="@+id/img5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="#ffffff88" />
-
-            <com.example.nightq.testapp.RoundCornerImageView
-                android:id="@+id/img6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="#ffff8888" />
-        </LinearLayout>
     </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>
