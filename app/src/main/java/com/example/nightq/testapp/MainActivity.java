@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 ImageView imageView = new ImageView(MainActivity.this);
                 imageView.setBackgroundColor(0xff888888);
-                layout.addView(imageView, new LinearLayout.LayoutParams(dip2px(100), dip2px(20)));
+//                layout.addView(imageView, new LinearLayout.LayoutParams(dip2px(100), dip2px(20)));
             }
         }, 1000);
 
